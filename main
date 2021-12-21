@@ -1,0 +1,32 @@
+# maximun km
+objetive = 80
+# initial kilometers
+kmi=40
+# increase percentaje of km
+percentaje = 5
+# number of week you want your mileage to go down: for example
+# if you put 4, you will have three weeks increasing mileage and one decrease.
+# if you only want increase put a number like 100000
+decrease_week = 5
+# decrease percentaje of km
+decreasepercentaje = 5
+
+# do not touch
+week=0 
+counter = 0
+
+#code 
+while kmi<(objetive):
+    if week >1 and week % decrease_week == 0:
+        kmi = round((kmi/(1+(decreasepercentaje/100))),2)
+        counter += kmi
+        week +=1
+        print ('week', week, ',', kmi, 'kms')
+    else:
+        kmi = round((kmi*(1+(percentaje/100))),2)
+        week +=1
+        counter += kmi
+        print ('week', week, ',', kmi, 'kms')
+print(' ')    
+print ('The total number of km is', counter, 'kms')
+print ('The total number of weeks is', week, 'weeks')
